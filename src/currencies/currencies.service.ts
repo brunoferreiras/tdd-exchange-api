@@ -10,7 +10,7 @@ export class CurrenciesService {
 
   async getCurrency(currency: string): Promise<any> {
     try {
-      await this.concurrenciesRepository.getCurrency(currency)
+      return await this.concurrenciesRepository.getCurrency(currency)
     } catch (error) {
       throw new InternalServerErrorException();
     }
