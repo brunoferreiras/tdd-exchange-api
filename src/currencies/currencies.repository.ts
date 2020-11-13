@@ -1,9 +1,10 @@
 import { InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { validateOrReject } from 'class-validator';
-import { Repository } from 'typeorm';
+import { EntityRepository, Repository } from 'typeorm';
 import { Currencies } from './currencies.entity';
 import { CreateCurrencyDto } from './dto/create-currency.dto';
 
+@EntityRepository(Currencies)
 export class CurrenciesRepository extends Repository<Currencies> {
   async getCurrency(currency: string): Promise<Currencies> {
     const result = await this.findOne({ currency })
