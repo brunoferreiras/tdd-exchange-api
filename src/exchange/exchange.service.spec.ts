@@ -12,6 +12,7 @@ describe('ExchangeService', () => {
   beforeEach(async () => {
     const currenciesServiceMock = {
       getCurrency: jest.fn().mockReturnValue({ value: 1 }),
+      createCurrency: jest.fn().mockReturnValue({ value: 1 }),
     }
     const module: TestingModule = await Test.createTestingModule({
       providers: [
